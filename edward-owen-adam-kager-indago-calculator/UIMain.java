@@ -55,11 +55,6 @@ public class UIMain {
 		return s.nextDouble();
 	}
 	
-	
-	
-	
-	
-	
 
 	private static void endProgram(Scanner s) {
 		System.out.print("\n\n----------------End of Line----------------");

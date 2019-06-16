@@ -1,2 +1,0 @@
-# adam-kager
-excellent work

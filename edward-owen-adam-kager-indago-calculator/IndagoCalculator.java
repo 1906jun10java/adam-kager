@@ -30,5 +30,4 @@ public class IndagoCalculator {
 			return 999.999d;
 		}
 	}
-
 }

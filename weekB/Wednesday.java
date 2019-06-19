@@ -11,6 +11,15 @@ public class Wednesday {
 		System.out.println("");
 		System.out.println("Calculated Factorial " + n + " is:  " + calculateFactorial(n));
 		
+		if (isPalindroneRec(stringConvertor(str)) == true) {
+			System.out.println("Is " + str + " a palindrone?");
+			System.out.println("HELLO USER.  THIS CURRENTLY DOES NOT WORK AND HAS A PLACE HOLDER  -MasterControl");
+			System.out.println("You have a palindrone!  "
+					+ "-This message is brought to you by recursion. "
+					+ "\n\n'Recursion, can you believe it!  Recursion, can you believe it!'");
+		}
+		isPalindroneRec(stringConvertor(str));
+		
 	}
 	
 	public static void reverseString(String str) {
@@ -51,6 +60,19 @@ public class Wednesday {
 				break;
 			}
 		}
+	}
+	
+	public static boolean isPalindroneRec(char[] charArray) {
+		int i = 0;
+		int j = charArray.length - 1;
+		
+		return true;
+	}
+	
+	public static char[] stringConvertor(String str) {
+		str = str.toLowerCase();
+		char[] charArray = str.toCharArray();
+		return charArray;
 	}
 	
 //	n! = n(n-1)(n-2)(n-3)...   

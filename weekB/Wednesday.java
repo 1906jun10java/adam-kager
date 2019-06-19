@@ -2,13 +2,20 @@
 public class Wednesday {
 	
 	public static void main(String[] args) {
-		String str = "ipaddapi";
+		String str = "racefcar";
+		String strTwo = "Racecar";
+		int n = 5;
 		reverseString(str);
-		isPalindrome(str);
+		isPalindrone(str);
+		isPalindrone(strTwo);
+		System.out.println("");
+		System.out.println("Calculated Factorial " + n + " is:  " + calculateFactorial(n));
+		
 	}
 	
 	public static void reverseString(String str) {
 		char[] charArray = str.toCharArray();
+		System.out.println("Original String:  ");
 		printArray(charArray);
 		//TODO Check if palindrome
 		int j = (charArray.length - 1);
@@ -16,41 +23,47 @@ public class Wednesday {
 			//swapper go swapping
 			char aHold = charArray[i];
 			char bHold = charArray[j];
-			System.out.println(bHold);
 			charArray[i] = bHold;
 			charArray[j] = aHold;
 			j--;
 		}
 		System.out.println("");
+		System.out.println("\nReversed String:  \n");
 		printArray(charArray);		
 	}
 	
-	public static boolean isPalindrome(String str) {
+	public static void isPalindrone(String str) {
+		//This is messy... but works!
+		System.out.println("\n\nIs '" + str + "' a palindrone");
+		str = str.toLowerCase();
 		char[] charArray = str.toCharArray();
-		char[] testArray = str.toCharArray();
-		//TODO Check if palindrome
-		
-		//silly way
-//		int j = (charArray.length - 1);
-//		for(int i = 0; i < charArray.length/2; i++) {
-//			//swapper go swapping
-//			char aHold = charArray[i];
-//			char bHold = charArray[j];
-//			System.out.println(bHold);
-//			testArray[i] = bHold;
-//			testArray[j] = aHold;
-//			j--;
-//		}
-//		System.out.println("");
-//		printArray(charArray);
-//		printArray(testArray);
-//		if(testArray.equals(charArray)) {
-//			System.out.println("you have a palindrone");
-//			return true;
-//		}
-//		
-		return false;
+		int i = 0;
+		int j = charArray.length - 1;
+		while(i < charArray.length/2) {
+			if(charArray[i] == charArray[j]) {
+				i++;
+				j--;
+				if(i >= j) {
+					System.out.println("Yep!");
+				}
+			} else {
+				System.out.println("...nope...");
+				break;
+			}
+		}
 	}
+	
+//	n! = n(n-1)(n-2)(n-3)...   
+//	5! = 5 * 4!
+//	n! = n * (n-1)!
+//	thus base case is: if(n = 0 || n = 1) return
+	public static int calculateFactorial(int n) {
+		if (n == 0 || n == 1) {
+			return 1;
+		}
+		return (n * calculateFactorial(n-1));
+	}
+	
 	
 	public static void printArray(int[] singleArray) { 
 		for(int i = 0; i < singleArray.length; i++) {

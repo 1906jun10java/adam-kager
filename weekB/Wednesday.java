@@ -5,20 +5,22 @@ public class Wednesday {
 		String str = "racefcar";
 		String strTwo = "Racecar";
 		int n = 5;
+		int i = 0;
+		int j = 0;
 		reverseString(str);
 		isPalindrone(str);
 		isPalindrone(strTwo);
 		System.out.println("");
 		System.out.println("Calculated Factorial " + n + " is:  " + calculateFactorial(n));
 		
-		if (isPalindroneRec(stringConvertor(str)) == true) {
+		if (isPalindroneRec(stringConvertor(str), i, j) == true) {
 			System.out.println("Is " + str + " a palindrone?");
 			System.out.println("HELLO USER.  THIS CURRENTLY DOES NOT WORK AND HAS A PLACE HOLDER  -MasterControl");
 			System.out.println("You have a palindrone!  "
 					+ "-This message is brought to you by recursion. "
 					+ "\n\n'Recursion, can you believe it!  Recursion, can you believe it!'");
 		}
-		isPalindroneRec(stringConvertor(str));
+		isPalindroneRec(stringConvertor(str), i, j);
 		
 	}
 	
@@ -62,10 +64,22 @@ public class Wednesday {
 		}
 	}
 	
-	public static boolean isPalindroneRec(char[] charArray) {
-		int i = 0;
-		int j = charArray.length - 1;
+	public static boolean isPalindroneRec(char[] charArray, int i, int j) {
+		//TODO Fix 'java.lang.Error: Unresolved compilation problems'
+//		if(charArray[i] == charArray[charArray.length - j]) {
+//			i++;
+//			j--;
+//			if(i == j) {
+//				return true;
+//			} else {
+//				isPalindroneRec(charArray, i, j);
+//			}
+//			
+//		}
+//		System.out.println("...nope...");
+//		return false;
 		
+		//TODO Remove 'return true;'
 		return true;
 	}
 	

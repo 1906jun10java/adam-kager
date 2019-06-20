@@ -8,14 +8,14 @@ public class Thursday {
 				+ "collect the search text";
 		String searchPass = "a word is in the block";
 		String searchFail = "a word is not in the block";
-		int numberRows = 5;
+		int numberRows = 0;
 		
 		
 		containsSubstring(mainString, searchPass);
 		containsSubstring(mainString, searchFail);
 		
 		
-		triangle(numberRows);
+		System.out.println(triangle(numberRows));
 	}
 	
 	public static boolean containsSubstring(String x, String y) {
@@ -24,8 +24,12 @@ public class Thursday {
 	}
 	
 	public static int triangle(int n) {
+		//Base case
+		if (n == 1 || n == 0) {
+			return n;
+		}
 		
-		return 0;
+		return n + triangle((n - 1));
 	}
 
 }

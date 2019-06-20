@@ -3,7 +3,7 @@ public class Wednesday {
 	
 	public static void main(String[] args) {
 		String str = "racefcar";
-		String strTwo = "Racecar";
+		String strTwo = "Rac e car";
 		int n = 5;
 		int i = 0;
 		int j = 0;
@@ -63,6 +63,11 @@ public class Wednesday {
 			}
 		}
 	}
+	
+	public static void isPalindroneClean() {
+		
+	}
+	
 	
 	public static boolean isPalindroneRec(char[] charArray, int i, int j) {
 		//TODO Fix 'java.lang.Error: Unresolved compilation problems'

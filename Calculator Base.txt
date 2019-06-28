@@ -1,0 +1,61 @@
+package TheGreatCalculator;
+
+import java.util.Scanner;
+
+public class CalOperations  {
+
+	public static boolean userInput() {
+		Scanner gtr = new Scanner(System.in);
+		int red = 0;
+		
+		while(red != 5) {
+			System.out.println("Press \"1\" for addition\nPress\"2\" for subtraction");
+			System.out.println("Press \"3\" for multiplication\nPress\"4\" for division\n");
+			System.out.println("Press \"5\" to exit");
+			//TODO add try catch to make sure it is an integer
+			int blue = gtr.nextInt();
+			switch (blue) {
+			case 1: runAdd();
+				break;
+			case 2: runSub();
+				break;
+			case 3: runMulti();
+				break;
+			case 4: runDiv();
+				break;
+			case 5: red = 5;
+			}
+		}
+		
+		return false;
+	}
+	
+	private static void runDiv() {
+		System.out.println("Dividing!");
+		
+	}
+
+	private static void runMulti() {
+		System.out.println("Multiplying!");
+		
+	}
+
+	private static void runSub() {
+		System.out.println("Subtraction!");
+		
+	}
+
+	public static void runAdd() {
+		System.out.println("adding!");
+		Scanner adding = new Scanner(System.in);
+		
+		double x = adding.nextDouble();
+		double y = adding.nextDouble();
+		double z = x + y;
+		System.out.println(z);
+		
+	}
+	
+	
+
+}

@@ -12,9 +12,18 @@ import java.util.Properties;
 public class Driver {
 
 	public static void main(String[] args) {
-		tableCreateQuestion();
-		printTables();
+//		tableCreateQuestion();
+//		printTables();
+		System.out.println(
+				"Currently, I have not practieced SQL at all as " 
+				+ "I have focused on core JAVA for Project0.");
 
+		System.out.println(
+				"\nOverall, I was unable to implement much of the challenge");
+
+		System.out.println(
+				"\nHowever, I did not give up and tried "
+				+ "to setup a connection");
 	}
 
 	private static void printTables(Connection con, String myDB) {

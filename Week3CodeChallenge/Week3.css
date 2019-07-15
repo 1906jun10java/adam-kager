@@ -1,0 +1,75 @@
+body{
+    background-color:black;
+    font-family: Arial, Helvetica, san-serif;
+    color: lightcyan;
+    text-align: center;
+    
+}
+
+header {
+    border-bottom: 3px ridge #af1038;
+	text-align: center;
+}
+
+article {
+    border: 1px ridge #eeeeee;
+    box-sizing: border-box;
+    padding: 5px;
+    /* margin: --> */
+}
+aside {
+    border: 1px ridge #ffffff;
+    box-sizing: border-box;
+    padding: 5px;
+    /* margin: --> */
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    flex-grow: 1;
+}
+
+li {
+    color:plum;
+}
+
+ul {
+    color:seashell;
+}
+#normal-view{
+    
+
+}
+
+form {
+    padding: 10px;
+    margin: 10px;
+    border: 4px solid lightgray;
+}
+
+div{
+	color:lavenderblush;
+	text-align: center;
+}
+
+h1{
+	color:whitesmoke;
+	text-align: center;
+
+}
+
+h2{
+	color:lightskyblue;
+	text-align: center;
+}
+
+#introduction{color:whitesmoke}
+
+#breakUpStyle{color:lightseagreen}
+
+/*use . for classes, use # for id*/
+.changeThingsUp{color:lightcoral;font-style:italic}

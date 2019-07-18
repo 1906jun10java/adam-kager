@@ -13,12 +13,12 @@
   </servlet-mapping>
   <!-- you have to map your servlet everytime -->
   <servlet>
-  	<servlet-name>Profile</servlet-name>
-  	<servlet-class>com.revature.servlet.ProfileServlet</servlet-class> 
+  	<servlet-name>Books</servlet-name>
+  	<servlet-class>com.revatrue.servlet.BookServlet</servlet-class> 
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Profile</servlet-name>
-  	<url-pattern>/profile</url-pattern>
+  	<servlet-name>Books</servlet-name>
+  	<url-pattern>/Books</url-pattern>
   </servlet-mapping>
 	
 </web-app>

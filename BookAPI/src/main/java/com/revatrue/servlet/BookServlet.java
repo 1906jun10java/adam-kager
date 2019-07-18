@@ -12,10 +12,11 @@ import com.revatrue.beans.Author;
 import com.revatrue.beans.Book;
 
 public class BookServlet extends HttpServlet {
-private BookServlet authService = new BookServlet();
+private BookServlet authServlet = new BookServlet();
 	
 	@Override
 	public void init() {
+		// unknown reason for having a ServletContext object here
 	    ServletContext context = getServletContext();
 	    System.out.println("init Servlet");
 	}
@@ -36,17 +37,13 @@ private BookServlet authService = new BookServlet();
 		// this returns "org.apache.catalina.connector.RequestFacade@3aac926a" in the
 		// browser
 		Book book = new Book(req.getParameter("title"), req.getParameter("author"),req.getParameter("999"));
-		Author author = new Author(req.getParameter("author"),req.getParameter("genre"));
+//		Author author = new Author(req.getParameter("author"),req.getParameter("genre"));
 		if (book != null) {
-			// redirect to a profile page
-			// RequestDispacher is used to preform a 'forward' - passing request to 
-			// another resource without the client's awarness
-
-			resp.sendRedirect("profile");
-			resp.getWriter().write("welcome " + book.getTitle());
+			resp.sendRedirect("from resp.sendRedirect");
+			resp.getWriter().write("Your Book " + book.getTitle() + " is here!");
 		} else {
 
-			resp.sendError(417, "invalid credentials");
+			resp.sendError(417, "... disapointment");
 
 
 		}

@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 		User user = authService.authenticateUser(creds);
 		if (user != null) {
 			// redirect to a profile page
-			// RequestDispacher is used to preform a 'forward' - passing request to 
+			// RequestDispacher is used to perform a 'forward' - passing request to 
 			// another resource without the client's awarness
 
 			resp.sendRedirect("profile");

@@ -1,23 +1,18 @@
-package com.revature.servlet;
+package com.revatrue.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-//did not see
 import javax.servlet.http.HttpServlet;
-// this looks nothing like what was presented
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.beans.Credentials;
-import com.revature.beans.User;
-import com.revature.service.AuthenticationService;
+import com.revatrue.beans.Author;
+import com.revatrue.beans.Book;
 
-public class LoginServlet extends HttpServlet {
-
-	private AuthenticationService authService = new AuthenticationService();
+public class BookServlet extends HttpServlet {
+private BookServlet authService = new BookServlet();
 	
 	@Override
 	public void init() {
@@ -30,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 		// write a message to the response body with PrintWriter
 		// resp.getWriter().write("hello from Login Servlet");
 
-		req.getRequestDispatcher("Login.html").forward(req, resp);
+		req.getRequestDispatcher("CallBookButton.html").forward(req, resp);
 	}
 
 	/*
@@ -40,31 +35,23 @@ public class LoginServlet extends HttpServlet {
 //		resp.getWriter().write(req.toString());
 		// this returns "org.apache.catalina.connector.RequestFacade@3aac926a" in the
 		// browser
-		Credentials creds = new Credentials(req.getParameter("username"), req.getParameter("password"));
-		User user = authService.authenticateUser(creds);
-		if (user != null) {
+		Book book = new Book(req.getParameter("title"), req.getParameter("author"),req.getParameter("999"));
+		Author author = new Author(req.getParameter("author"),req.getParameter("genre"));
+		if (book != null) {
 			// redirect to a profile page
 			// RequestDispacher is used to preform a 'forward' - passing request to 
 			// another resource without the client's awarness
 
 			resp.sendRedirect("profile");
-			resp.getWriter().write("welcome " + user.getFirstname());
+			resp.getWriter().write("welcome " + book.getTitle());
 		} else {
-			// Message
-//			resp.getWriter().write("Invalid !!! EXTERMINATE EXERMINATE");
-			// or!
-			// redirect to login page but can go anywhere
-//			resp.sendRedirect("login");
-			// or! Options 3:
+
 			resp.sendError(417, "invalid credentials");
-			// Just a demo of getContextPath()
-//			ServletContext servcont = req.getServletContext(); //inherited method
-//			ServletConfig config = getServletConfig();  //Also inherited
-//			resp.getWriter().write(servcont.getContextPath()+" <---THIS IS THE ROOT THROUGH getContextPath  "+
-//					" ServletClass: "+config.getClass());
-			
+
 
 		}
 
 	}
 }
+
+

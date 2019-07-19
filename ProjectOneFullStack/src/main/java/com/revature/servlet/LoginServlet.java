@@ -54,11 +54,10 @@ public class LoginServlet extends HttpServlet {
 		if (user != null) {
 			//vvvvvv session vvvvvv
 			// set user information as session attributes (not request attributes
-			session.setAttribute("userId", user.getId());
-			session.setAttribute("username", user.getUsername());
 			session.setAttribute("firstname", user.getFirstname());
 			session.setAttribute("lastname", user.getLastname());
-			session.setAttribute("email", user.getEmail());
+			session.setAttribute("username", user.getUsername());
+			session.setAttribute("email", user.getPassword());
 			
 			
 			// redirect to a profile page
@@ -79,15 +78,12 @@ public class LoginServlet extends HttpServlet {
 			// redirect to login page but can go anywhere
 //			resp.sendRedirect("login");
 			// or! Options 3:
-			resp.sendError(417, "invalid credentials");
+			resp.sendError(417, "invalid credentials problems...");
 			// Just a demo of getContextPath()
 //			ServletContext servcont = req.getServletContext(); //inherited method
 //			ServletConfig config = getServletConfig();  //Also inherited
 //			resp.getWriter().write(servcont.getContextPath()+" <---THIS IS THE ROOT THROUGH getContextPath  "+
 //					" ServletClass: "+config.getClass());
-			
-
 		}
-
 	}
 }

@@ -12,8 +12,8 @@ public class AuthenticationService {
 	//If the user is valid, we will return a user object, otherwise return null
 	public User authenticateUser(Credentials creds) {
 		User user = null;
-		if(creds.getUsername().equals("merlin") && creds.getPassword().equals("cat")) {
-			user = new User(6, "Merling", "Higgins", creds.getUsername(), "merlin@aemailplace.com");
+		if(creds.getUsername().equals("aUsername") && creds.getPassword().equals("aPassword")) {
+			user = new User(creds.getUsername(), "Merling", "Higgins", "merlin@aemailplace.com");
 		}
 		return user;
 	}

@@ -11,8 +11,8 @@ public class UserDaoImpl implements UserDao {
 	private List<User> allUsers = new ArrayList<>();
 	
 	public UserDaoImpl () {
-		User user = new User(5, "Todd", "Helton", "SilverSlugger", "email");
-		User user2 = new User(5, "Eric", "Holder", "USAG", "email");
+		User user = new User(5, "Todd", "Helton", "SilverSlugger", "baseball");
+		User user2 = new User(5, "Eric", "Holder", "USAG", "password");
 		this.allUsers.add(user);
 		this.allUsers.add(user2);
 	}

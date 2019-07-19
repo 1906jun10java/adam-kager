@@ -5,8 +5,6 @@ public class Credentials {
 	private String username = "username";
 	private String password = "password";
 	public Credentials() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Credentials(String username, String password) {
 		super();

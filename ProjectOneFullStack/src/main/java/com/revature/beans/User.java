@@ -5,26 +5,26 @@ public class User {
 	private String firstname;
 	private String lastname;
 	private String username;
-	private String email;
+	private String password;
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(int id, String firstname, String lastname, String username, String email) {
+	public User(int id, String firstname, String lastname, String username, String password) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.username = username;
-		this.email = email;
+		this.password = password;
 	}
 	
-	public User(String firstname, String lastname, String username, String email) {
+	public User(String firstname, String lastname, String username, String password) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.username = username;
-		this.email = email;
+		this.password = password;
 	}
 	public int getId() {
 		return id;
@@ -50,17 +50,17 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getEmail() {
-		return email;
+	public String getPassword() {
+		return password;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
@@ -76,10 +76,10 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (email == null) {
-			if (other.email != null)
+		if (password == null) {
+			if (other.password != null)
 				return false;
-		} else if (!email.equals(other.email))
+		} else if (!password.equals(other.password))
 			return false;
 		if (firstname == null) {
 			if (other.firstname != null)
@@ -102,9 +102,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", username=" + username
-				+ ", email=" + email + "]";
-	}
-	
-	
+		return "User [firstname=" + firstname + ", lastname=" + lastname + ", username=" + username
+				+ ", password=" + password + "]";
+	}	
 }

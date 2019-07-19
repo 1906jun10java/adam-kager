@@ -131,6 +131,7 @@ testem.log
 #System Files
 .DS_Store
 
-
+#properties
+connection.properties
 
 # End of https://www.gitignore.io/api/angular

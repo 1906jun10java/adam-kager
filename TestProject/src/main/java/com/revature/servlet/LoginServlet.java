@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 // this looks nothing like what was presented
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.revature.beans.Credentials;
 import com.revature.beans.User;
@@ -37,19 +38,41 @@ public class LoginServlet extends HttpServlet {
 	 * doPost will handle all post requests these can be auto-generated
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//vvvvvv create a new session vvvvvv
+		// overloaded version takes a boolean parameter, if false returns null 
+		//when no session exists for the incoming request
+		
+		//This uses HttpSession
+		HttpSession session = req.getSession();
+		
+		
 //		resp.getWriter().write(req.toString());
 		// this returns "org.apache.catalina.connector.RequestFacade@3aac926a" in the
 		// browser
 		Credentials creds = new Credentials(req.getParameter("username"), req.getParameter("password"));
 		User user = authService.authenticateUser(creds);
 		if (user != null) {
+			//vvvvvv session vvvvvv
+			// set user information as session attributes (not request attributes
+			session.setAttribute("userId", user.getId());
+			session.setAttribute("username", user.getUsername());
+			session.setAttribute("firstname", user.getFirstname());
+			session.setAttribute("lastname", user.getLastname());
+			session.setAttribute("email", user.getEmail());
+			
+			
 			// redirect to a profile page
 			// RequestDispacher is used to perform a 'forward' - passing request to 
 			// another resource without the client's awarness
-
 			resp.sendRedirect("profile");
 			resp.getWriter().write("welcome " + user.getFirstname());
+			
+			//vvvvvv create a new session vvvvvv
+			
+			
+			
 		} else {
+			session.setAttribute("problems", "invalid credentials problems...");
 			// Message
 //			resp.getWriter().write("Invalid !!! EXTERMINATE EXERMINATE");
 			// or!

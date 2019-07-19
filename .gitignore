@@ -133,7 +133,8 @@ testem.log
 
 #properties
 connection.properties
+*/conneciton.properties
 
-/src/main/resources/conneciton.properties
+*/src/main/resources/conneciton.properties
 
 # End of https://www.gitignore.io/api/angular

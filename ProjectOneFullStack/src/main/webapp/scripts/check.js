@@ -18,9 +18,11 @@ function populateUser() {
 			//define behavior for when a user is returned
 			user = data;
 			document.getElementById("username").innerText = "username: "+user.username;
+			document.getElementById("password").innerText = "password: "+user.password;
 			document.getElementById("firstname").innerText = "firstname: "+user.firstname;
 			document.getElementById("lastname").innerText = "lastname: "+user.lastname;
-			document.getElementById("email").innerText = "email: "+user.email;
+			document.getElementById("manager").innerText = "manager: "+user.manager;
+			document.getElementById("employeelevel").innerText = "employeelevel"+user.employeelevel;
 		}
 	})
 }

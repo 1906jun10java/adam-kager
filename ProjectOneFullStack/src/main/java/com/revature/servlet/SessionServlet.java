@@ -29,8 +29,9 @@ public class SessionServlet extends HttpServlet {
 				String username = session.getAttribute("username").toString();
 				String firstname = session.getAttribute("firstname").toString();
 				String lastname = session.getAttribute("lastname").toString();
-				String email = session.getAttribute("email").toString();
-				User user = new User(username, firstname, lastname, email);
+				String manager = session.getAttribute("manager").toString();
+				String employeelevel = session.getAttribute("employeelevel").toString();
+				User user = new User(username, "hidden password", firstname, lastname, manager, employeelevel);
 				resp.getWriter().write((new ObjectMapper()).writeValueAsString(user));
 				
 				

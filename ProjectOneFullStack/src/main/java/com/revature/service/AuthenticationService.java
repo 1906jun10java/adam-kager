@@ -13,7 +13,8 @@ public class AuthenticationService {
 	public User authenticateUser(Credentials creds) {
 		User user = null;
 		if(creds.getUsername().equals("aUsername") && creds.getPassword().equals("aPassword")) {
-			user = new User(creds.getUsername(), "Merling", "Higgins", "merlin@aemailplace.com");
+			user = new User(creds.getUsername(), user.getPassword(), user.getFirstname(), 
+					user.getLastname(), user.getManager(), user.getEmployeelevel());
 		}
 		return user;
 	}

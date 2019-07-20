@@ -5,20 +5,20 @@
 	version="2.5">
 	<display-name>ProjectOneFullStack</display-name>
 	<servlet>
-		<servlet-name>Login</servlet-name>
+		<servlet-name>LoginServlet</servlet-name>
 		<servlet-class>com.revature.servlet.LoginServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Login</servlet-name>
+		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>Profile</servlet-name>
+		<servlet-name>ProfileServlet</servlet-name>
 		<servlet-class>com.revature.servlet.ProfileServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Profile</servlet-name>
+		<servlet-name>ProfileServlet</servlet-name>
 		<url-pattern>/profile</url-pattern>
 	</servlet-mapping>
 	<servlet>

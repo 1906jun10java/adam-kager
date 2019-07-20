@@ -33,9 +33,10 @@ public class ConnectionFactory {
 			Properties prop = new Properties();	
 
 			try {
-				String cp = "connection.properties";
+				String cp = "database.properties";
 				System.out.println("C Factory line 37");
 				InputStream stream = loader.getResourceAsStream(cp);
+				System.out.println(cp);
 				System.out.println("C Factory line 39");
 				prop.load(stream);
 //				InputStream stream = this.getClass().getResourceAsStream("../resources/connection.properties"); 

@@ -18,6 +18,10 @@ import com.revature.service.AuthenticationService;
 
 public class LoginServlet extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2347918532073186867L;
 	private AuthenticationService authService = new AuthenticationService();
 	
 	@Override

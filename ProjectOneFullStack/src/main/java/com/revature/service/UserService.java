@@ -8,25 +8,22 @@ import com.revature.beans.User;
 import com.revature.dao.UserDao;
 import com.revature.dao.UserDaoImpl;
 
-public class UserServiceTest {
+public class UserService {
 	public static HashMap<String, User> Users = new HashMap<>();
 	public static ArrayList<String> UsersIndex = new ArrayList<>();
 	
-	
 	private UserDao forEveryServiceOneDaoObject = new UserDaoImpl();
 			
-	
-	
-	
-	public UserServiceTest() {
+	public UserService() {
 	}
 	
 	public List<User> getUsers() {
+		System.out.println("running getUsers from UserService");
 		return forEveryServiceOneDaoObject.getUsers();
 	}
 
 	public User getUserByUsername(String username) {
-
+		System.out.println("5 - running getUserByUsername from UserService");
 		return forEveryServiceOneDaoObject.getUserByUsername(username);
 	}
 

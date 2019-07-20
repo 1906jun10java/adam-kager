@@ -11,13 +11,14 @@
             <form action="login" method="POST">
                 <fieldset>
                     <legend>USERNAME:</legend>
-                    <input required autocomplete="off" name="username"/>
+                    <input required autocomplete="off" type="text" name="username"/>
                 </fieldset>
                 <fieldset>
                     <legend>PASSWORD:</legend>
                     <input required autocomplete="off" type="password" name="password"/>
                 </fieldset>
                 <br>
+                <!-- I think this pings the sevlet using the web.xml directory -->
                 <input type="submit" value="login"/>
             </form>
         </div>

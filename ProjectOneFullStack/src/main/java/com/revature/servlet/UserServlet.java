@@ -11,12 +11,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.revature.beans.User;
-import com.revature.service.UserServiceTest;
+import com.revature.service.UserService;
 
 @WebServlet("/User") // alternet way to register a map servlets... pick this or web.xml, not both
 public class UserServlet extends HttpServlet {
 	//this is our service class whose methods we will call
-	private UserServiceTest userServiceTest;
+	private UserService userServiceTest;
 
 	// You do not want to maintain states, but will need some stuff
 	
@@ -24,7 +24,7 @@ public class UserServlet extends HttpServlet {
 	private ObjectMapper om;
 	
 	public UserServlet() {
-		userServiceTest = new UserServiceTest();
+		userServiceTest = new UserService();
 		om = new ObjectMapper();
 		om.registerModule(new JavaTimeModule());
 		// either a enum value or a constangte
@@ -65,9 +65,8 @@ public class UserServlet extends HttpServlet {
 	}
 	
 	@Override
-	//using PostMan!
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// resd request body and convet to a JSON file
+		// resd request body and convert to a JSON file
 		if (userServiceTest.createUser(om.readValue(req.getReader(), User.class))) {
 			resp.setStatus(200);
 		} else {

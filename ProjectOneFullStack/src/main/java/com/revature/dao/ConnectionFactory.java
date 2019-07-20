@@ -10,45 +10,63 @@ import java.util.Properties;
 
 public class ConnectionFactory {
 
-	// singleton connection factory
 	private static ConnectionFactory cf = new ConnectionFactory();
 
-	// constructor
 	private ConnectionFactory() {
 		super();
 	}
 
-	// creates a sync'd instance of the ConnFactory if none exists and returns an
-	// instance of itself
 	public static synchronized ConnectionFactory getInstance() {
-		if (cf == null) { // if no instance exists
-			cf = new ConnectionFactory(); // create a new instance of the ConnFactory
+		if (cf == null) { 
+			cf = new ConnectionFactory(); 
 		}
 		return cf;
 	}
 
 	// attempts a connection with a sql database
 	public Connection getConnection() {
+			System.out.println("! Connecting to Database");
 
-			Connection conn = null;					//sets the connection to null
-			Properties prop = new Properties();		//creates a new properties field
+			Connection conn = null;	
 
-			try {//attempts the connection and throws an appropriate exception if failure occurs
-					InputStream stream =this.getClass().getResourceAsStream("/database.properties"); 
-					prop.load(stream);
-				Class.forName(prop.getProperty("driver"));				//pulls the value for the driver
-				conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("usr"),prop.getProperty("password"));		//sets the values for url, username and password for the sql server
+			ClassLoader loader = Thread.currentThread().getContextClassLoader();
+			Properties prop = new Properties();	
+
+			try {
+				String cp = "connection.properties";
+				System.out.println("C Factory line 37");
+				InputStream stream = loader.getResourceAsStream(cp);
+				System.out.println("C Factory line 39");
+				prop.load(stream);
+//				InputStream stream = this.getClass().getResourceAsStream("../resources/connection.properties"); 
+//				prop.load(stream);
+
+				System.out.println("C Factory line 44");
+				Class.forName(prop.getProperty("driver"));
+				System.out.println("C Factory line 46");
+				conn = DriverManager.getConnection(prop.getProperty("Earl"), prop.getProperty("past"),prop.getProperty("time"));
+
+				System.out.println("C Factory line 49");
+//				conn = DriverManager.getConnection("awsURL",
+//						"username", "password");
 				
-			} catch (FileNotFoundException e) {	//file was not found
+				
+				//Wrong way of calling this
+//				Class.forName("oracle.jdbc.driver.OracleDriver");
+//				System.out.println("C Factory line 56");
+//				conn = DriverManager.getConnection("awsUrl",
+//						"username", "password");
+				
+			} catch (FileNotFoundException e) {	
 				e.printStackTrace();
-			} catch (IOException e) {			//IOException
+			} catch (IOException e) {	
 				e.printStackTrace();
-			} catch (SQLException e) {			//SQLException
+			} catch (SQLException e) {		
 				e.printStackTrace();	
-			} catch (ClassNotFoundException e) {	//ClassNotFound
+			} catch (ClassNotFoundException e) {	
 				e.printStackTrace();
 			}catch (Exception e) {
-				System.out.println("something weird happened during connection");
+				System.out.println("Problems... Connection problems...");
 				e.printStackTrace();
 			}
 

@@ -7,10 +7,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import com.revature.beans.User;
-import com.revature.service.UserServiceTest;
+import com.revature.service.UserService;
 
 public class UserDaoImpl implements UserDao {
 //	public static Logger log = Logger.getRootLogger();
@@ -18,19 +18,21 @@ public class UserDaoImpl implements UserDao {
 	public static ConnectionFactory cFS = ConnectionFactory.getInstance();
 	
 	User user = new User();
-	private List<User> allUsers = new ArrayList<>();
+	private ArrayList<User> allUsers = new ArrayList<>();
 	
-	public UserDaoImpl () {
-		User user = new User("SilverSlugger", "firstbase", "Todd", "Helton", "Baylor", "1");
-		User user2 = new User("GoldenGlove", "leftfield", "Eric", "Young", "Baylor", "1");
-		User user3 = new User("SneakTheaf", "rockies", "Don", "Baylor", "none", "2");
-		this.allUsers.add(user);
-		this.allUsers.add(user2);
-		this.allUsers.add(user3);
+	public UserDaoImpl() {
+		System.out.println("4 - running UserDaoImpl in UserDaoImpl");
+//		User user4 = new User("SilverSlugger", "firstbase", "Todd", "Helton", "Baylor", "1");
+//		User user2 = new User("GoldenGlove", "leftfield", "Eric", "Young", "Baylor", "1");
+//		User user3 = new User("SneakTheaf", "rockies", "Don", "Baylor", "none", "2");
+//		this.allUsers.add(user4);
+//		this.allUsers.add(user2);
+//		this.allUsers.add(user3);
 	}
 
 	@Override
-	public List<User> getUsers() {
+	public ArrayList<User> getUsers() {
+		System.out.println("7 - running getUsers in UserDaoImpl");
 		Connection connection = cFS.getConnection();
 		Statement statement = null;
 
@@ -48,13 +50,13 @@ public class UserDaoImpl implements UserDao {
 				user.setManager(rs.getString(5));
 				user.setEmployeelevel(rs.getString(6));
 				allUsers.add(user);
-				UserServiceTest.Users.put(user.getUsername(), user);
-				UserServiceTest.UsersIndex.add(user.getUsername());
+				UserService.Users.put(user.getUsername(), user);
+				UserService.UsersIndex.add(user.getUsername());
 
 			}
 
 		} catch (SQLException e) {
-//			log.info(e);
+			System.out.println("This is a SQL problem\n" + e);
 		} finally {
 			if (statement != null) {
 //				statement.close();
@@ -64,9 +66,13 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User getUserByUsername(String username) {
+	public User getUserByUsername(String usernameFromLoginPage) {
+		System.out.println("6 - Calling getUsers from getUserByUsername in UserDaoImpl");
+		ArrayList<User> allUsers = getUsers();
+		System.out.println(allUsers);
 		for(User user : allUsers) {
-			if(user.getUsername() == (username)) {
+			System.out.println(user.getUsername());
+			if(user.getUsername() == (usernameFromLoginPage)) {
 				return user;
 			}
 		}
@@ -75,6 +81,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean createUser(User user) {
+		System.out.println("createUser from UserDaoImpl");
 		allUsers.add(user);
 		return true;
 		

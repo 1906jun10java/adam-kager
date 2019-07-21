@@ -50,8 +50,9 @@ public class UserDaoImpl implements UserDao {
 				user.setManager(rs.getString(5));
 				user.setEmployeelevel(rs.getString(6));
 				allUsers.add(user);
-//				UserService.Users.put(user.getUsername(), user);
-//				UserService.UsersIndex.add(user.getUsername());
+				UserService.Users.put(user.getUsername(), user);
+				System.out.println("Found " + user.getUsername());
+				UserService.UsersIndex.add(user.getUsername());
 
 			}
 

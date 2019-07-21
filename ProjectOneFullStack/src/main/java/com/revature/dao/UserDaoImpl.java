@@ -22,12 +22,7 @@ public class UserDaoImpl implements UserDao {
 	
 	public UserDaoImpl() {
 		System.out.println("4 - running UserDaoImpl in UserDaoImpl");
-//		User user4 = new User("SilverSlugger", "firstbase", "Todd", "Helton", "Baylor", "1");
-//		User user2 = new User("GoldenGlove", "leftfield", "Eric", "Young", "Baylor", "1");
-//		User user3 = new User("SneakTheaf", "rockies", "Don", "Baylor", "none", "2");
-//		this.allUsers.add(user4);
-//		this.allUsers.add(user2);
-//		this.allUsers.add(user3);
+
 	}
 
 	@Override
@@ -87,6 +82,10 @@ public class UserDaoImpl implements UserDao {
 	public boolean createUser(User user) {
 		System.out.println("running createUser from UserDaoImpl");
 		allUsers.add(user);
+		UserService.Users.put(user.getUsername(), user);
+		UserService.UsersIndex.add(user.getUsername());
+		// make a sql prepared statement to add a user to the database
+		
 		return true;
 		
 	}

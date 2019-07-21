@@ -27,13 +27,16 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("running doGet from LogoutServlet");
 		// TODO Auto-generated method stub
+		System.out.println("response.getWriter");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		// invalidate current session
+		System.out.println("trying to end session");
 		HttpSession session = request.getSession(false);
 		if (session != null) {
+			System.out.println("ending session");
 			session.invalidate();
 		}
-		// redirect back to login
+		// redirect to logout
 		response.sendRedirect("login");
 	}
 

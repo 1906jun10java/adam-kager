@@ -48,11 +48,6 @@ public class LoginServlet extends HttpServlet {
 		//when no session exists for the incoming request
 		//This uses HttpSession
 		HttpSession session = req.getSession();
-		
-		
-//		resp.getWriter().write(req.toString());
-		// this returns "org.apache.catalina.connector.RequestFacade@3aac926a" in the
-		// browser
 		Credentials creds = new Credentials(req.getParameter("username"), req.getParameter("password"));
 		User user = authService.authenticateUser(creds);
 		if (user != null) {
@@ -67,6 +62,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("Employeelevel", user.getEmployeelevel());
 			
 			
+			System.out.println("THIS IS YOUR SESSION !!!!!!!" + session.getAttribute("username")); 
 			// redirect to a profile page
 			// RequestDispacher is used to perform a 'forward' - passing request to 
 			// another resource without the client's awarness
@@ -83,9 +79,9 @@ public class LoginServlet extends HttpServlet {
 //			resp.getWriter().write("Invalid !!! EXTERMINATE EXERMINATE");
 			// or!
 			// redirect to login page but can go anywhere
-//			resp.sendRedirect("login");
+			resp.sendRedirect("login");
 			// or! Options 3:
-			resp.sendError(417, "invalid credentials problems... My expectations have been failed");
+//			resp.sendError(417, "invalid credentials problems... My expectations have been failed");
 			// Just a demo of getContextPath()
 //			ServletContext servcont = req.getServletContext(); //inherited method
 //			ServletConfig config = getServletConfig();  //Also inherited

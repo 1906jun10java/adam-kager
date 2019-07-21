@@ -31,7 +31,7 @@ public class AuthenticationService {
 //			user = new User();
 //			user.setUsername(creds.getUsername());
 //			user.setPassword(creds.getPassword());
-			System.out.println(creds.getUsername() + " is in the database!!!!!!");
+			System.out.println(creds.getUsername() + " is in the database and password matches!!!!!!");
 			user = UserService.Users.get(creds.getUsername());
 			
 		} else {

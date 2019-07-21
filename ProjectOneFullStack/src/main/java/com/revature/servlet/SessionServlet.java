@@ -20,6 +20,7 @@ public class SessionServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("running doGet from SessionServlet");
 		HttpSession session = req.getSession(false);
 		// check if it is there
 		if (session != null && session.getAttribute("username") != null) {
@@ -51,6 +52,7 @@ public class SessionServlet extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("running doPost from SessionServlet");
 		doGet(req, resp);
 	}
 

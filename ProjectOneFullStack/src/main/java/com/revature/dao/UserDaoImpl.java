@@ -50,8 +50,8 @@ public class UserDaoImpl implements UserDao {
 				user.setManager(rs.getString(5));
 				user.setEmployeelevel(rs.getString(6));
 				allUsers.add(user);
-				UserService.Users.put(user.getUsername(), user);
-				UserService.UsersIndex.add(user.getUsername());
+//				UserService.Users.put(user.getUsername(), user);
+//				UserService.UsersIndex.add(user.getUsername());
 
 			}
 
@@ -71,17 +71,20 @@ public class UserDaoImpl implements UserDao {
 		ArrayList<User> allUsers = getUsers();
 		System.out.println(allUsers);
 		for(User user : allUsers) {
+			System.out.println("running the for loop for all users in UserDaoImpl");
 			System.out.println(user.getUsername());
 			if(user.getUsername() == (usernameFromLoginPage)) {
+				System.out.println("returning " + user + "all users in UserDaoImpl");
 				return user;
 			}
 		}
+		System.out.println("returning null all users in UserDaoImpl");
 		return null;
 	}
 
 	@Override
 	public boolean createUser(User user) {
-		System.out.println("createUser from UserDaoImpl");
+		System.out.println("running createUser from UserDaoImpl");
 		allUsers.add(user);
 		return true;
 		
@@ -89,12 +92,14 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void updateUser(User user) {
+		System.out.println("running updateUser from UserDaoImpl");
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void deleteUser(User user) {
+		System.out.println("running deleteUser from UserDaoImpl");
 		// TODO Auto-generated method stub
 		
 	}

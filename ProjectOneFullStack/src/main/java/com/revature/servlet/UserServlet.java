@@ -36,7 +36,7 @@ public class UserServlet extends HttpServlet {
 	// Return all users as JSON text
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		System.out.println("Running doGet from UserServlet");
 		// check if there is an id provided in the query string
 		String usernameFromQueryString = req.getParameter("username");
 		if(usernameFromQueryString != null) {
@@ -66,6 +66,7 @@ public class UserServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("Running doPost from UserServlet");
 		// resd request body and convert to a JSON file
 		if (userServiceTest.createUser(om.readValue(req.getReader(), User.class))) {
 			resp.setStatus(200);

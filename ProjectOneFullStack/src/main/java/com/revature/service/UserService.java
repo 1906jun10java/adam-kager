@@ -28,6 +28,7 @@ public class UserService {
 	}
 
 	public boolean createUser(User user) {
+		System.out.println("running createUser from UserService");
 		return forEveryServiceOneDaoObject.createUser(user);
 	}
 	

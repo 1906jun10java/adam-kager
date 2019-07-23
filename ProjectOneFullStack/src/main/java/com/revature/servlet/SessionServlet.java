@@ -16,8 +16,8 @@ import com.revature.beans.User;
 
 @WebServlet("/session")
 public class SessionServlet extends HttpServlet {
-	//is there a session, does it match the stuff
-	
+	// is there a session, does it match the stuff
+
 	/**
 	 * 
 	 */
@@ -34,7 +34,7 @@ public class SessionServlet extends HttpServlet {
 		if (session != null && session.getAttribute("username") != null) {
 			try {
 				System.out.println("---Current session:  " + session);
-				//If Integer, use a wrapper class Integer to parseInt
+				// If Integer, use a wrapper class Integer to parseInt
 //				int userId = Integer.parseInt(session.getAttribute("userId").toString());
 				String username = session.getAttribute("username").toString();
 				System.out.println(session.getAttribute("username").toString());
@@ -46,26 +46,24 @@ public class SessionServlet extends HttpServlet {
 				System.out.println(session.getAttribute("manager").toString());
 //				String employeelevel = session.getAttribute("employeelevel").toString();
 //				System.out.println(session.getAttribute("employeelevel").toString());
-				User user = new User(username, "hidden password", firstname, lastname, manager, "1");
+				User user = new User(username, "hidden-password", firstname, lastname, manager, "1");
 				System.out.println(user);
 				resp.getWriter().write((new ObjectMapper()).writeValueAsString(user));
+				System.out.println(new ObjectMapper().writeValueAsString(user));
 
-				
-				
-				
 				// all the other stuff
 			} catch (Exception e) {
-				//normally log the Exception
+				// normally log the Exception
 				e.printStackTrace();
 				resp.getWriter().write("{\"session\":null}");
-				
+
 			}
-			
+
 		} else {
 			resp.getWriter().write("{\"session\":null}");
 		}
 	}
-	
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("running doPost from SessionServlet");
 		doGet(req, resp);

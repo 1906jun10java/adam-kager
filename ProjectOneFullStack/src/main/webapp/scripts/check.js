@@ -10,18 +10,18 @@ function populateUser() {
 		return response.json(); // parsing json data in the response as a JS object
 	}).then(function(data) {
 		console.log(data);
-		// check whether there is a valid session
-		//define behavior for when there is no valid user
 		if(data.session === null) {
-//			window.location = "http://localhost:8088/ProjectOneFullStack/login"
+			window.location = "http://localhost:8088/ProjectOneFullStack/login"
 		} else {
-			//define behavior for when a user is returned
 			user = data;
-			document.getElementById("username").innerText = "username: " + user.username;
-			//document.getElementById("password").innerText = "password: "+user.password;
-			document.getElementById("firstname").innerText = "firstname: " + user.firstname;
-			document.getElementById("lastname").innerText = "lastname: " + user.lastname;
-			document.getElementById("manager").innerText = "manager: " + user.manager;
+			document.getElementById("usernameinfo").innerText = "Username:  " + user.username;
+//			document.getElementById("password").innerText = "password: "+user.password;
+			document.getElementById("firstnameinfo").innerText = "First name:  " + user.firstname;
+			document.getElementById("lastnameinfo").innerText = "Last name:  " + user.lastname;
+			document.getElementById("managerinfo").innerText = "Manager:  " + user.manager;
+			document.getElementById("firstname").innerText = user.firstname;
+			document.getElementById("lastname").innerText = user.lastname;
+
 //			document.getElementById("employeelevel").innerText = "employeelevel"+user.employeelevel;
 		}
 	})

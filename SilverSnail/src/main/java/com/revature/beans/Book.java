@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+//Name for JPA - for Java Persistence 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 @Table(name="BOOK")
 
 public class Book {
-	@Id
+	@Id  //@Id persistent identity is the PRIMARY KEY
 	//if you are expecting to use all ORM, set it up here
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="bookSequence")
 	//Defaults to 50 defaults to 1

@@ -11,4 +11,5 @@ public interface BookDao {
 	public boolean addBook(Book book);
 	public boolean updateBook(Book book);
 	public boolean deleteBook(Book book);
+	public boolean updateAllAuthorsByAuthorLastname(String authorLastname, String newAuthorLastname);
 }

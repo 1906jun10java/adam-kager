@@ -29,15 +29,36 @@ public class Driver {
 //		
 //		
 //		System.out.println("Closing Session to release the connection");
-		//short and many, not long and few
+//		//short and many, not long and few
 		BookDao bd = new BookDaoImpl();	
-		Book b = bd.getBookById(1);
-		System.out.println(b.getTitle());
-		
-		List<Book> bookList = bd.getAllBooks();
-		for(Book ba : bookList) {
-			System.out.println(ba.getTitle());
-		}
+		bd.updateAllAuthorsByAuthorLastname("D.", "Smith");
+//		Book b = bd.getBookById(1);
+//		System.out.println(b.getTitle());
+		bd.getAllBooks();
+//		
+//		bd.addBook(new Book("Eric and Tim", "Comedy", "Alex", "D."));
+//		List<Book> bookList = bd.getAllBooks();
+//		for(Book ba : bookList) {
+//			System.out.println(ba.getTitle());
+//		}
+//		bd.addBook(new Book("THIS IS A BOOK TITLE!!!!", "boring genre", "Alex", "D."));
+//		List<Book> bookList2 = bd.getAllBooks();
+//		for(Book ba : bookList2) {
+//			System.out.println(ba.getTitle());
+//		}
+//		bd.addBook(new Book("IT", "Scarry", "Alex", "D."));
+//		List<Book> bookList3 = bd.getAllBooks();
+//		for(Book ba : bookList3) {
+//			System.out.println(ba.getTitle());
+//		}
+		// adds a book
+		// updates
+//		b.setTitle("The Count");
+//		bd.updateBook(b);
+//		List<Book> bookList2 = bd.getAllBooks();
+//		for(Book ba : bookList2) {
+//			System.out.println(ba.getTitle());
+//		}
 
 //		s.close();
 		

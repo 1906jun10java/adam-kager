@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("2 - doGet from LoginServlet");
 		// write a message to the response body with PrintWriter
-		 resp.getWriter().write("hello from Login Servlet");
+		resp.getWriter().write("hello from Login Servlet");
 
 		req.getRequestDispatcher("Login.html").forward(req, resp);
 	}
@@ -66,11 +66,16 @@ public class LoginServlet extends HttpServlet {
 			// redirect to a profile page
 			// RequestDispacher is used to perform a 'forward' - passing request to 
 			// another resource without the client's awarness
-			resp.sendRedirect("profile");
+			if (session.getAttribute("Employeelevel").equals("2")) {
+				//TODO send to managerprofile
+				resp.sendRedirect("managerprofile");
+			} else {
+				resp.sendRedirect("profile");
+			}
 			resp.getWriter().write("welcome " + user.getFirstname());
 			
-			//vvvvvv create a new session vvvvvv
-			
+
+		
 			
 			
 		} else {

@@ -36,6 +36,24 @@ public class Driver {
 //		System.out.println(b.getTitle());
 		bd.getAllBooks();
 //		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Additional testing
 //		bd.addBook(new Book("Eric and Tim", "Comedy", "Alex", "D."));
 //		List<Book> bookList = bd.getAllBooks();
 //		for(Book ba : bookList) {

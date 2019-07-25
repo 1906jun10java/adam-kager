@@ -21,6 +21,15 @@ public class Request {
 		this.receiveDateCode = receiveDateCode;
 		this.approveDateCode = approveDateCode;
 	}
+	public Request(int requestId, double requestAmount, String requestEmployee, String approveManager) {
+		super();
+		this.requestId = requestId;
+		this.requestAmount = requestAmount;
+		this.requestEmployee = requestEmployee;
+		this.approveManager = approveManager;
+
+	}
+	
 	public int getRequestId() {
 		return requestId;
 	}

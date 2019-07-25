@@ -54,22 +54,24 @@ function table() {
 		headerCell.innerHTML = "Direct Manager";
 
 		//ROWS
+		for(let i = 0; i < data.length; i++) {
 		row = table.insertRow(-1);
 
 		let cell = row.insertCell(-1);
-		cell.innerHTML = data.requestId;
+		cell.innerHTML = data[i].requestId;
 
 		cell = row.insertCell(-1);
-		cell.innerHTML = data.requestEmployee;
+		cell.innerHTML = data[i].requestEmployee;
 
 		cell = row.insertCell(-1);
-		cell.innerHTML = data.requestAmount;
+		cell.innerHTML = data[i].requestAmount;
 
 		cell = row.insertCell(-1);
-		cell.innerHTML = data.approveManager;
+		cell.innerHTML = data[i].approveManager;
 
 		let completeTable = document.getElementById("rt");
 		completeTable.innerHTML = "";
 		completeTable.appendChild(table);
+		}
 	})
 }

@@ -139,4 +139,7 @@ connection.properties
 */src/main/resources/conneciton.properties
 */src/main/resources/database.properties
 
+*.pem
+*/*.pem
+
 # End of https://www.gitignore.io/api/angular

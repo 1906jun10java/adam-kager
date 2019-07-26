@@ -32,28 +32,19 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("2 - doGet from LoginServlet");
-		// write a message to the response body with PrintWriter
 		resp.getWriter().write("hello from Login Servlet");
 
 		req.getRequestDispatcher("Login.html").forward(req, resp);
 	}
 
-	/*
-	 * doPost will handle all post requests these can be auto-generated
-	 */
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("2 - doPost from LoginServlet");
-		//vvvvvv create a new session vvvvvv
-		// overloaded version takes a boolean parameter, if false returns null 
-		//when no session exists for the incoming request
-		//This uses HttpSession
 		HttpSession session = req.getSession();
 		Credentials creds = new Credentials(req.getParameter("username"), req.getParameter("password"));
 		User user = authService.authenticateUser(creds);
 		if (user != null) {
 			System.out.println("user != null");
-			//vvvvvv session vvvvvv
-			// set user information as session attributes (not request attributes
 			session.setAttribute("username", user.getUsername());
 			session.setAttribute("password", user.getPassword());
 			session.setAttribute("firstname", user.getFirstname());
@@ -63,11 +54,8 @@ public class LoginServlet extends HttpServlet {
 			
 			
 			System.out.println("THIS IS YOUR SESSION !!!!!!!" + session.getAttribute("username")); 
-			// redirect to a profile page
-			// RequestDispacher is used to perform a 'forward' - passing request to 
-			// another resource without the client's awarness
+
 			if (session.getAttribute("Employeelevel").equals("2")) {
-				//TODO send to managerprofile
 				resp.sendRedirect("managerprofile");
 			} else {
 				resp.sendRedirect("profile");
@@ -80,18 +68,8 @@ public class LoginServlet extends HttpServlet {
 			
 		} else {
 			session.setAttribute("problems", "invalid credentials problems...");
-			// Message
-//			resp.getWriter().write("Invalid !!! EXTERMINATE EXERMINATE");
-			// or!
-			// redirect to login page but can go anywhere
 			resp.sendRedirect("login");
-			// or! Options 3:
-//			resp.sendError(417, "invalid credentials problems... My expectations have been failed");
-			// Just a demo of getContextPath()
-//			ServletContext servcont = req.getServletContext(); //inherited method
-//			ServletConfig config = getServletConfig();  //Also inherited
-//			resp.getWriter().write(servcont.getContextPath()+" <---THIS IS THE ROOT THROUGH getContextPath  "+
-//					" ServletClass: "+config.getClass());
+
 		}
 	}
 }

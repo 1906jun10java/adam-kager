@@ -9,7 +9,7 @@ public class User {
 	private String employeelevel;
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	public User(String username, String password, String firstname, String lastname, String manager,
 			String employeelevel) {
@@ -57,6 +57,7 @@ public class User {
 	public void setEmployeelevel(String employeelevel) {
 		this.employeelevel = employeelevel;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -69,6 +70,7 @@ public class User {
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

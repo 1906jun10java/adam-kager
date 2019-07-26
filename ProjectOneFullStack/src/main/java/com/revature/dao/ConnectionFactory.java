@@ -23,7 +23,6 @@ public class ConnectionFactory {
 		return cf;
 	}
 
-	// attempts a connection with a sql database
 	public Connection getConnection() {
 		System.out.println("! Connecting to Database");
 
@@ -34,14 +33,10 @@ public class ConnectionFactory {
 
 		try {
 			String cp = "database.properties";
-//				System.out.println("C Factory line 37");
-			InputStream stream = loader.getResourceAsStream(cp);
-//				System.out.println("C Factory line 39");
-			prop.load(stream);
 
-//				System.out.println("C Factory line 44");
+			InputStream stream = loader.getResourceAsStream(cp);
+			prop.load(stream);
 			Class.forName(prop.getProperty("driver"));
-//				System.out.println("C Factory line 46");
 			conn = DriverManager.getConnection(prop.getProperty("Earl"), prop.getProperty("past"),
 					prop.getProperty("time"));
 

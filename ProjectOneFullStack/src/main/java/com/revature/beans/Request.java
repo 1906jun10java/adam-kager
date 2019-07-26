@@ -9,7 +9,7 @@ public class Request {
 	private int approveDateCode = 19991231;
 	public Request() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	public Request(int requestId, double requestAmount, String requestEmployee, String approveManager,
 			int receiveDateCode, int approveDateCode) {

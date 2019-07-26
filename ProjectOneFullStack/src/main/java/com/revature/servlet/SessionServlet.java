@@ -16,7 +16,6 @@ import com.revature.beans.User;
 
 @WebServlet("/session")
 public class SessionServlet extends HttpServlet {
-	// is there a session, does it match the stuff
 
 	/**
 	 * 
@@ -30,7 +29,7 @@ public class SessionServlet extends HttpServlet {
 		if (session == null) {
 			System.out.println("current session is null... but why!?");
 		}
-		// check if it is there
+
 		if (session != null && session.getAttribute("username") != null) {
 			try {
 				System.out.println("---Current session:  " + session);
@@ -44,19 +43,16 @@ public class SessionServlet extends HttpServlet {
 				System.out.println(session.getAttribute("lastname").toString());
 				String manager = session.getAttribute("manager").toString();
 				System.out.println(session.getAttribute("manager").toString());
-//				String employeelevel = session.getAttribute("employeelevel").toString();
-//				System.out.println(session.getAttribute("employeelevel").toString());
+
 				User user = new User(username, "hidden-password", firstname, lastname, manager, "1");
 				System.out.println(user);
 				resp.getWriter().write((new ObjectMapper()).writeValueAsString(user));
 				System.out.println(new ObjectMapper().writeValueAsString(user));
 
-				// all the other stuff
+
 			} catch (Exception e) {
-				// normally log the Exception
 				e.printStackTrace();
 				resp.getWriter().write("{\"session\":null}");
-
 			}
 
 		} else {

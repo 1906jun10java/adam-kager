@@ -13,12 +13,10 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.revature.beans.User;
 import com.revature.service.UserService;
 
-@WebServlet("/User") // alternet way to register a map servlets... pick this or web.xml, not both
+@WebServlet("/User") 
 public class UserServlet extends HttpServlet {
 	//this is our service class whose methods we will call
 	private UserService userServiceTest;
-
-	// You do not want to maintain states, but will need some stuff
 	
 	// this is used to convert Java objects to JSON- formatted data to include in response bodies
 	private ObjectMapper om;

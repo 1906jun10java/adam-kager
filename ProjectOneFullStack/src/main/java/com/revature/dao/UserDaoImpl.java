@@ -84,7 +84,6 @@ public class UserDaoImpl implements UserDao {
 		allUsers.add(user);
 		UserService.Users.put(user.getUsername(), user);
 		UserService.UsersIndex.add(user.getUsername());
-		// make a sql prepared statement to add a user to the database
 		
 		return true;
 		
@@ -93,14 +92,12 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void updateUser(User user) {
 		System.out.println("running updateUser from UserDaoImpl");
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void deleteUser(User user) {
 		System.out.println("running deleteUser from UserDaoImpl");
-		// TODO Auto-generated method stub
 		
 	}
 

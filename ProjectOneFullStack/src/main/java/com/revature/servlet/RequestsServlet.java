@@ -33,27 +33,19 @@ public class RequestsServlet extends HttpServlet {
 		if (session == null) {
 			System.out.println("current session is null... but why!?");
 		}
-		// check if it is there
-			if (session != null && session.getAttribute("username") != null) {
-				try {
-					resp.getWriter().write((new ObjectMapper()).writeValueAsString(requestList));
-					System.out.println(new ObjectMapper().writeValueAsString(requestList));
-				}
 
-				// all the other stuff
-				catch (Exception e) {
-					// normally log the Exception
-					e.printStackTrace();
-					resp.getWriter().write("{\"session\":null}");
-
-				}
-
-			} else {
+		if (session != null && session.getAttribute("username") != null) {
+			try {
+				resp.getWriter().write((new ObjectMapper()).writeValueAsString(requestList));
+				System.out.println(new ObjectMapper().writeValueAsString(requestList));
+			} catch (Exception e) {
+				e.printStackTrace();
 				resp.getWriter().write("{\"session\":null}");
 			}
-		
-		// for now just sending a request
 
+		} else {
+			resp.getWriter().write("{\"session\":null}");
+		}
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

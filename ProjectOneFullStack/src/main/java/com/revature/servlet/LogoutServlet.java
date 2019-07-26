@@ -7,62 +7,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class LogoutServlet
- */
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public LogoutServlet() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("running doGet from LogoutServlet");
-		// TODO Auto-generated method stub
 		System.out.println("response.getWriter");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		// invalidate current session
 		System.out.println("trying to end session");
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			System.out.println("ending session");
 			session.invalidate();
 		}
-		// redirect to logout
 		response.sendRedirect("login");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("running doPost from LogoutServlet");
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("running doPut from LogoutServlet");
-		// TODO Auto-generated method stub
 	}
 
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("running doDelete from LogoutServlet");
-		// TODO Auto-generated method stub
 	}
 
 }

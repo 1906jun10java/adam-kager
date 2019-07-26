@@ -17,7 +17,6 @@ public class RequestDaoImpl implements RequestDao {
 	Request request = new Request();
 	private ArrayList<Request> allRequests = new ArrayList<>();
 	
-
 	@Override
 	public List<Request> getRequests() {
 		System.out.println("? - running getRequests in RequestDaoImpl");
@@ -62,25 +61,21 @@ public class RequestDaoImpl implements RequestDao {
 	
 	@Override
 	public Request getRequestById(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean createRequest(Request request) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void updateRequest(Request request) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void deleteRequest(Request request) {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -3,6 +3,7 @@ let user = {};
 window.onload = function() {
 	populateUser();
 	table();
+	empTable();
 	
 
 }
@@ -70,6 +71,57 @@ function table() {
 		cell.innerHTML = data[i].approveManager;
 
 		let completeTable = document.getElementById("rt");
+		completeTable.innerHTML = "";
+		completeTable.appendChild(table);
+		}
+	})
+}
+
+function empTable() {
+	fetch("http://localhost:8088/ProjectOneFullStack/getallemployees").then(
+			function(response) {
+//				console.log(response.json());
+				console.log("Hello!");
+				let data = response.json();
+				console.log(data);	
+				return data;
+			}).then(function(data) {
+	
+		let table = document.createElement("TABLE");
+		table.border = "2";
+
+		let row = table.insertRow(-1);
+		let headerCell = document.createElement("et");
+		//HEADERS
+		headerCell = row.insertCell(-1);
+		headerCell.innerHTML = "Employee ID";
+
+		headerCell = row.insertCell(-1);
+		headerCell.innerHTML = "First Name";
+
+		headerCell = row.insertCell(-1);
+		headerCell.innerHTML = "Last Name";
+
+		headerCell = row.insertCell(-1);
+		headerCell.innerHTML = "Direct Manager";
+
+		//ROWS
+		for(let i = 0; i < data.length; i++) {
+		row = table.insertRow(-1);
+
+		let cell = row.insertCell(-1);
+		cell.innerHTML = data[i].username;
+
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].firstname;
+
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].lastname;
+
+		cell = row.insertCell(-1);
+		cell.innerHTML = data[i].manager;
+
+		let completeTable = document.getElementById("et");
 		completeTable.innerHTML = "";
 		completeTable.appendChild(table);
 		}

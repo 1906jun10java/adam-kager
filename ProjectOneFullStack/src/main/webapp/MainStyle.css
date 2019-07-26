@@ -15,14 +15,22 @@ article {
     border: 1px ridge #eeeeee;
     box-sizing: border-box;
     padding: 5px;
-    /* margin: --> */
+
 }
 aside {
     border: 1px ridge #ffffff;
     box-sizing: border-box;
     padding: 5px;
-    /* margin: --> */
+
 }
+table {
+    border: 1px ridge #ffffff;
+    box-sizing: border-box;
+    padding: 5px;
+    align-content: center;
+    text-align: center;
+}
+
 
 #container {
     display: flex;
@@ -65,10 +73,13 @@ h1{
 
 h2{
 	color:lightskyblue;
-	text-align: center;
+	text-align: left;
+}
+
+h3 {
+	color:lavender;
 }
 #rt{
-	table-align: center;
 	text-align: center
 }
 

@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login HERE!</title>
+        <title>ERS</title>
         <meta name="viewport" content="width=device-width, intial-scal=1"/>
-    	<meta charset="utf-8"/>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="MainStyle.css">
     </head>
     <body>
+        <div>
+            <h1>Employment Reimbursement System</h1><br>
+        <h2>Your ERS to improve our RBI, HR, and ERA!</h2><br>
+            
+        <h3>Be sure to avoid that strike-out by not submitting your request in two weeks.</h3>
+        </div>
         <div class="changeThingsUp">
             <form action="login" method="POST">
                 <fieldset>
@@ -18,8 +25,13 @@
                     <input required autocomplete="off" type="password" name="password"/>
                 </fieldset>
                 <br>
-                <!-- I think this pings the sevlet using the web.xml directory -->
-                <input type="submit" value="login"/>
+                <fieldset>
+
+                    <button type="submit" class="btn btn-secondary" data-toggle="popover" title="Popup title" data-content="Popup content" value="login">Login</button>
+                            <span class="badge badge-primary" type="submit" value="login"></span>
+                   
+                <!--<input type="submit" value="login"/>-->
+                </fieldset>
             </form>
         </div>
     </body>

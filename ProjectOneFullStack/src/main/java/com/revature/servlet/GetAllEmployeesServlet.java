@@ -15,20 +15,23 @@ import com.revature.beans.Request;
 import com.revature.beans.User;
 import com.revature.dao.RequestDao;
 import com.revature.dao.RequestDaoImpl;
+import com.revature.dao.UserDao;
+import com.revature.dao.UserDaoImpl;
 
-@WebServlet("/requests")
-public class RequestsServlet extends HttpServlet {
+@WebServlet("/getallemployees")
+public class GetAllEmployeesServlet  extends HttpServlet{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8196266680511604953L;
+	private static final long serialVersionUID = -6620593149740120872L;
 
+	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("running doGet from RequestServlet");
+		System.out.println("running doGet from GetAllEmployeesServlet");
 		HttpSession session = req.getSession(false);
-		RequestDao rd = new RequestDaoImpl();
-		List<Request> requestList = rd.getRequests();
+		UserDao rd = new UserDaoImpl();
+		List<User> requestList = rd.getUsers();
 		System.out.println(requestList);
 		if (session == null) {
 			System.out.println("current session is null... but why!?");
@@ -57,8 +60,10 @@ public class RequestsServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("running doPost from SessionServlet");
+		System.out.println("running doPost from GetAllEmployeesServlet");
 		doGet(req, resp);
 	}
 
 }
+
+

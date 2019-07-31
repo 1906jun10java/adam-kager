@@ -5,8 +5,13 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.revature.beans.Author;
 import com.revature.beans.Book;
+import com.revature.beans.Flashcard;
+import com.revature.beans.FlashcardTopic;
 import com.revature.dao.BookDao;
 import com.revature.dao.BookDaoImpl;
 import com.revature.util.ConnectionUtil;
@@ -30,29 +35,12 @@ public class Driver {
 //		
 //		System.out.println("Closing Session to release the connection");
 //		//short and many, not long and few
-		BookDao bd = new BookDaoImpl();	
-		bd.updateAllAuthorsByAuthorLastname("D.", "Smith");
+//		BookDao bd = new BookDaoImpl();	
+//		bd.updateAllAuthorsByAuthorLastname("D.", "Smith");
 //		Book b = bd.getBookById(1);
 //		System.out.println(b.getTitle());
-		bd.getAllBooks();
+//		bd.getAllBooks();
 //		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		//Additional testing
 //		bd.addBook(new Book("Eric and Tim", "Comedy", "Alex", "D."));
 //		List<Book> bookList = bd.getAllBooks();
@@ -79,6 +67,21 @@ public class Driver {
 //		}
 
 //		s.close();
+		
+		AbstractApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
+		// this getBean uses the mapped name from the xml
+		Author a = (Author) ac.getBean("author");
+		System.out.println(a);
+		Flashcard f = (Flashcard) (ac).getBean("componentScannedFlashcard");
+		f.setAnswer("42");
+		f.setQuestion("What is the meaning");
+		f.setId(6);
+		f.setTopic(FlashcardTopic.THE_BEATLES);
+		System.out.println(f);
+		
+		ac.close();
+		
+		
 		
 	}
 
